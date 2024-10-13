@@ -24,6 +24,6 @@ Implement and train unconditional diffusion models, such as DDPM (Denoising Diff
     - https://arxiv.org/abs/2010.02502
 
 ## How to run
-1. docker build
-2. docker run
+1. docker buildx build -t <image_name> .
+2. docker run -v ${PWD}/data:/root -it <image_name>
 
