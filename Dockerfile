@@ -12,4 +12,6 @@ RUN pip install --no-cache-dir -r requirements.txt
 
 COPY . .
 
-CMD ["python", "image_gen.ipynb"]
+EXPOSE 8888
+
+CMD ["jupyter", "notebook", "image_gen.ipynb", "--ip=0.0.0.0", "--port=8888", "--no-browser", "--allow-root"]
