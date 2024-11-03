@@ -10,3 +10,5 @@ scipy
 matplotlib
 seaborn
 notebook
+torchmetrics
+torcheval
