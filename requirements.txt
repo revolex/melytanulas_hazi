@@ -1,14 +1,10 @@
-torch>=1.9.0
-torchvision>=0.10.0
+pytorch-lightning
+torch-fidelity
 diffusers
 transformers
 datasets
-numpy
-pandas
-gdown
-scipy
 matplotlib
 seaborn
+matplotlib
 notebook
 torchmetrics
-torcheval

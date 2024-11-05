@@ -25,6 +25,7 @@ Implement and train unconditional diffusion models, such as DDPM (Denoising Diff
 
 ## How to run
 1. docker build -t melytanulas_hazi .
-2. docker run -p 8888:8888 melytanulas_hazi
+2. docker run --gpus all -p 8888:8888 melytanulas_hazi
 3. open in a browser: http://127.0.0.1:8888/tree?token=XXXXXXX... (it will show up in the terminal after the run command)
-4. open and launch image_gen.ipynb file
+4. open and Run all in the image_gen.ipynb file
+5. The model training, its evaluation and the comparison of both models will be found in the notebook once the run has finished.
