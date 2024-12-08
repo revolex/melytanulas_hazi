@@ -1,1 +1,5 @@
 data
+.venv
+lightning_logs
+generated_image*
+README.md

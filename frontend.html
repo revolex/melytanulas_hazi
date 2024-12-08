@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generate Image</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background: linear-gradient(180deg, #c300d1, rgb(4, 4, 118));
+        }
+        #container {
+            text-align: center;
+        }
+        #image-container {
+            margin-bottom: 20px;
+        }
+        #generate-btn-p {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: #01162d;
+            color: white;
+            border: none;
+            border-radius: 5px;
+        }
+        #generate-btn-f {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: #01162d;
+            color: white;
+            border: none;
+            border-radius: 5px;
+        }
+        #generate-btn:hover {
+            background-color: #e38eff;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <div id="image-container">
+
+        </div>
+        <button id="generate-btn-p" >Generate pet image</button>
+        <button id="generate-btn-f">Generate flower image</button>
+    </div>
+
+    <script>
+        const generateButtonP = document.getElementById('generate-btn-p');
+        const imageContainer = document.getElementById('image-container');
+    
+        generateButtonP.addEventListener('click', async () => {
+            try {
+                const response = await fetch('http://localhost:6565/generate-pet');
+                if (!response.ok) {
+                    throw new Error('Failed to fetch image');
+                }
+                const blob = await response.blob();
+                const imageUrl = URL.createObjectURL(blob); 
+    
+                const img = document.createElement('img');
+                img.src = imageUrl;
+                img.alt = 'Generated Pet Image';
+                img.style.height = '320px';
+                img.style.width = '320px';
+    
+                imageContainer.innerHTML = ''; 
+                imageContainer.appendChild(img); 
+            } catch (error) {
+                console.error('Error:', error);
+                alert('Failed to generate image. Please try again later.');
+            }
+        });
+    
+        const generateButtonF = document.getElementById('generate-btn-f');
+        generateButtonF.addEventListener('click', async () => {
+            try {
+                const response = await fetch('http://localhost:6565/generate-flower');
+                if (!response.ok) {
+                    throw new Error('Failed to fetch image');
+                }
+                const blob = await response.blob(); 
+                const imageUrl = URL.createObjectURL(blob); 
+    
+                const img = document.createElement('img');
+                img.src = imageUrl;
+                img.alt = 'Generated Flower Image';
+                img.style.height = '320px';
+                img.style.width = '320px';
+    
+                imageContainer.innerHTML = ''; 
+                imageContainer.appendChild(img); 
+            } catch (error) {
+                console.error('Error:', error);
+                alert('Failed to generate image. Please try again later.');
+            }
+        });
+    </script>
+    
+</body>
+</html>

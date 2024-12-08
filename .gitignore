@@ -1,6 +1,5 @@
 data
 .venv
+trained_model_*
 lightning_logs
-trained_model_flowers
-trained_model_pets
 generated_image_*

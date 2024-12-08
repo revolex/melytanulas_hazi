@@ -1,4 +1,4 @@
-FROM python:3.9-slim
+FROM python:3.11-slim
 
 WORKDIR /app
 
@@ -12,6 +12,8 @@ RUN pip install --no-cache-dir -r requirements.txt
 
 COPY . .
 
-EXPOSE 8888
+COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 
-CMD ["jupyter", "notebook", "image_gen.ipynb", "--ip=0.0.0.0", "--port=8888", "--no-browser", "--allow-root"]
+EXPOSE 8888 6565
+
+CMD ["supervisord", "-c", "/etc/supervisor/conf.d/supervisord.conf"]
