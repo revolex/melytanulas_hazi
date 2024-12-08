@@ -16,6 +16,7 @@ Implement and train unconditional diffusion models, such as DDPM (Denoising Diff
 - service.py: ML as service implementáció, lehet kérni tőle képeket
 - supervisord.conf: Dockerhez hogy automatikusan indítsa a notebook szervert és a service-t.
 - frontend.html: Frontend UI képek generálásához
+- dokumentacio.pdf: A dokumentáció a tárgyhoz
 ## Related works
 - Related GitHub repositories:
     - https://huggingface.co/blog/annotated-diffusion
