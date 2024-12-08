@@ -1,0 +1,5 @@
+data
+.venv
+trained_model_*
+lightning_logs
+generated_image_*
